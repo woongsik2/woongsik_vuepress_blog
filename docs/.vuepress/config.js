@@ -1,7 +1,10 @@
+var path = require('path')
+let { getArticles } = require(path.resolve('docs/.vuepress/wg-util'))
+
 module.exports = {
   title: '타자치는 곰',
   description: '킴웅식',
-  base: "/woongsik2.github.io/",
+  base: '/woongsik2.github.io/',
   head: [
     // ['link', {
     //   rel: 'icon',
@@ -10,16 +13,19 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
-      '/javascript/Const-let',
-      '/javascript/Scope',
-      '/javascript/Hoisting',
-      '/javascript/Closure',
-      '/javascript/ExecutionContext',
-
-      '/etc/Jest-Enzyme',
-      '/etc/docker',
+      {
+        title: 'javascript',
+        collapsable: true,
+        children: getArticles('javascript')
+      },
+      {
+        title: 'etc',
+        collapsable: true,
+        children: getArticles('etc')
+      }
     ],
-    nav: [{
+    nav: [
+      {
         text: 'Guide',
         link: '/#'
       },
